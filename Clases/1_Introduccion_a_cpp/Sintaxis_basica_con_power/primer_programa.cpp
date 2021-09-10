@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -241,11 +242,88 @@ void un_switch(){
 
 //WHILE
 void un_while(){
+    //imprime los numeros del 1 al 10
+    int i = 0; 
+    while(i<10){
+        i++;
+        cout << i <<endl;
+    }
+}
+
+//DO-WHILE
+void un_do_while(){
+    int i = 0;
+    //La diferencia con while es q aqui la sentencia del
+    //do se ejecuta al menos una vez endependientemente
+    //de la condicion de corte
+    //si entrase con 13 x ejemplo...
+    i=13;
+    do{
+        i++;
+        cout << i << endl;
+    } while(i<10);  //va ; aca
+}
+
+//FOR
+void un_for(){
+    //para topes definidos previamente...
+    int tope = 10;
+    for(int i = 1; i<= tope ; i++){
+    cout << i << endl;
+    }
+}
+
+
+
+//FUNCIONES
+int minimo(int x, int y){
+    if(y<x){
+        return y;
+    }
+    else{
+        return x;
+    }
+}
+
+//SWAP
+void intercambiar(int &x, int &y){
+    //A diferencia de C, en c++ es posible pasarle
+    //un puntero a la variable pero trabajarla dentro
+    //de la funcion como una variable y no como un puntero
+    //por eso no se usa *
+    int aux = x;
+    x = y;
+    y = aux;
+}
+
+//VCETORES POR PARAMETRO
+void cargar_vector(int vec[10], int tope){ //puedo recibir como vec[] o vec[10]
+    //Los vectores y matrices se pasan por referencia de manera
+    //automática, no hay que indicarlo
+
+    for(int i = 0; i < tope; i++){
+        vec[i] = ((i+1)*(i+1));
+    }
+}
+
+
+
+//STRINGS
+//hay q incluir la libreria
+//(Por alguna razon funciona sin ella igualmente)
+//#include <string?
+void algunos_strings(){
+    std :: string nombre = "German";
+    std :: string valor;
+    valor = "Lenguaje";
+    valor = valor + " C++";
+    cout << nombre <<" estudia " << valor << " con POO";
 
 }
 
 //Comienza siempre con la ejecucion del main
 int main(){
+    //--SINTAX BASICA--//
     //cout << "Hello World!" <<endl;
     // aqui << mando la flechas indican a donde mando
     //tipos_de_datos();
@@ -262,7 +340,37 @@ int main(){
     //un_if_else();
     //un_switch();
     //un_while();
+    //un_do_while();
+    //un_for();
 
+    //--FUNCIONES--//
+    //cout << minimo(5,-132) <<endl;
+    
+    // --> Parametros por referencia (punteros)
+    // int x = 12, y = 420;
+    // cout <<"Antes del llamado a intercambiar"<< endl;
+    // cout <<"x = " << x << " y = " << y <<endl;
+    // intercambiar(x,y);
+    // cout <<"Despues del llamado a intercambiar"<< endl;
+    // cout <<"x = " << x << " y = " << y <<endl;
+    
+    //--> Vectores enviados por parametro
+
+    // int vec[5];
+    
+    // cargar_vector(vec,5);
+    // // xa mandar el vector mando solo el nombre
+    // //(solo vec)
+
+    // int tope = sizeof(vec)/sizeof(vec[0]);
+    // cout <<"El vector tiene "<< tope <<" elementos" <<endl;
+    
+    // for (int i = 0; i <tope; i++){
+    //     cout<<vec[i]<< " - ";
+    // }
+
+    //STRINGS
+    algunos_strings();
 
     return 0;
 }
