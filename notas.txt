@@ -1,0 +1,3 @@
+-Wall
+-Werror
+-Wconversion: si los tipos de datos son != tira error
