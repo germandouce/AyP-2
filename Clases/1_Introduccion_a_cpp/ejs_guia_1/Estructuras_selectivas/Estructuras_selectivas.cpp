@@ -93,110 +93,111 @@ Formar un menú de 4 opciones y, al elegir una de ellas, saldrá un cartel dicie
 opción se eligió o si fue una opción incorrecta. 
 */
 
-const int SUMA = 1;
-const int RESTA = 2;
-const int MULTIPLICACION = 3;
-const int DIVISION = 4;
-const int SALIR = 5;
 
-const int ERROR = -1;
-const int OPCIONES_VALIDAS = 5;
+// const int SUMA = 1;
+// const int RESTA = 2;
+// const int MULTIPLICACION = 3;
+// const int DIVISION = 4;
+// const int SALIR = 5;
 
-void mostrar_menu(){
-    cout << endl;
-    cout << "MENU" << endl
-    << '\t' << "1 - Suma" << endl
-    << '\t' << "2 - Resta" << endl
-    << '\t' << "3 - Multiplicacion" << endl
-    << '\t' << "4 - Division" << endl
-    << '\t' << "5- Salir" << endl;
-}
+// const int ERROR = -1;
+// const int OPCIONES_VALIDAS = 5;
+
+// void mostrar_menu(){
+//     cout << endl;
+//     cout << "MENU" << endl
+//     << '\t' << "1 - Suma" << endl
+//     << '\t' << "2 - Resta" << endl
+//     << '\t' << "3 - Multiplicacion" << endl
+//     << '\t' << "4 - Division" << endl
+//     << '\t' << "5- Salir" << endl;
+// }
 
 
-int pedir_opcion(){
-    int opcion_elegida = ERROR;
-    cout << "Ingrese una opcion : ";
-    cin >> opcion_elegida;
+// int pedir_opcion(){
+//     int opcion_elegida = ERROR;
+//     cout << "Ingrese una opcion : ";
+//     cin >> opcion_elegida;
 
-    return opcion_elegida;
-}
+//     return opcion_elegida;
+// }
 
-void validar_opcion_elegida(int &opcion_elegida){
-    bool es_opcion_valida = opcion_elegida > 0 && opcion_elegida <= OPCIONES_VALIDAS;
-    while(!es_opcion_valida){
-        cout << "Por favor ingrese una opcion valida: ";
-        cin >> opcion_elegida;
-        es_opcion_valida = opcion_elegida > 0 && opcion_elegida <= OPCIONES_VALIDAS;
-    }
-}
+// void validar_opcion_elegida(int &opcion_elegida){
+//     bool es_opcion_valida = opcion_elegida > 0 && opcion_elegida <= OPCIONES_VALIDAS;
+//     while(!es_opcion_valida){
+//         cout << "Por favor ingrese una opcion valida: ";
+//         cin >> opcion_elegida;
+//         es_opcion_valida = opcion_elegida > 0 && opcion_elegida <= OPCIONES_VALIDAS;
+//     }
+// }
 
-void sumar(float num_1, float num_2){
-    float res =  num_1 + num_2;
-    cout <<"Resultado: " << res;
-}
+// void sumar(float num_1, float num_2){
+//     float res =  num_1 + num_2;
+//     cout <<"Resultado: " << res;
+// }
 
-void restar(float num_1, float num_2){
-    float res =  num_1 - num_2;
-    cout <<"Resultado: " << res;
-}
+// void restar(float num_1, float num_2){
+//     float res =  num_1 - num_2;
+//     cout <<"Resultado: " << res;
+// }
 
-void multiplicar(float num_1, float num_2){
-    float res = num_1*num_2;
-    cout <<"Resultado: " << res;
-}
+// void multiplicar(float num_1, float num_2){
+//     float res = num_1*num_2;
+//     cout <<"Resultado: " << res;
+// }
 
-void dividir(float num_1, float num_2){
-    float res = num_1/num_2;
-    cout <<"Resultado: " << res;
-}
+// void dividir(float num_1, float num_2){
+//     float res = num_1/num_2;
+//     cout <<"Resultado: " << res;
+// }
 
-void procesar_opcion(int opcion_elegida, float num_1, float num_2){
-    switch(opcion_elegida){
-        case SUMA:
-            sumar(num_1, num_2);
-            break;
+// void procesar_opcion(int opcion_elegida, float num_1, float num_2){
+//     switch(opcion_elegida){
+//         case SUMA:
+//             sumar(num_1, num_2);
+//             break;
 
-        case RESTA:
-            restar(num_1, num_2);
-            break;
+//         case RESTA:
+//             restar(num_1, num_2);
+//             break;
 
-        case MULTIPLICACION:
-            multiplicar(num_1, num_2);
-            break;
+//         case MULTIPLICACION:
+//             multiplicar(num_1, num_2);
+//             break;
         
-        case DIVISION:
-            dividir(num_1, num_2);
-            break;       
-    }
-}
+//         case DIVISION:
+//             dividir(num_1, num_2);
+//             break;       
+//     }
+// }
 
 
-int main(){
-    float num_1, num_2;
+// int main(){
+//     float num_1, num_2;
     
-    cout << "Ingrese primer numero: ";
-    cin >> num_1;
+//     cout << "Ingrese primer numero: ";
+//     cin >> num_1;
 
-    cout << "Ingrese segundo numero: ";
-    cin >> num_2;
+//     cout << "Ingrese segundo numero: ";
+//     cin >> num_2;
     
-    int  opc = 0;
+//     int  opc = 0;
 
-    // mostrar_menu();
+//     // mostrar_menu();
         
-    // opc = pedir_opcion();
+//     // opc = pedir_opcion();
         
-    // validar_opcion_elegida(opc);
+//     // validar_opcion_elegida(opc);
 
-    while (opc != SALIR){
+//     while (opc != SALIR){
                 
-        mostrar_menu();
+//         mostrar_menu();
         
-        opc = pedir_opcion();
+//         opc = pedir_opcion();
         
-        validar_opcion_elegida(opc);
-        cout << endl;
-        procesar_opcion(opc, num_1, num_2);
-        cout << endl;
-    }
-}   
+//         validar_opcion_elegida(opc);
+//         cout << endl;
+//         procesar_opcion(opc, num_1, num_2);
+//         cout << endl;
+//     }
+// }   
