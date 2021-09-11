@@ -19,6 +19,7 @@ using namespace std;
 //     else{
 //         cout << "Es igual a cero";
 //     }
+//     return 0;
 // }
 
 
@@ -43,6 +44,7 @@ Leer dos números reales e imprimir el mayor de ellos.
 //     else{
 //         cout << num_1 <<" es igual a " << num_2;
 //     }
+//     return 0;
 // }
 
 
@@ -60,6 +62,7 @@ Escribir un algoritmo que determine si un número es par.
 //     else{
 //         cout << "Es impar";
 //     }
+//     return 0;
 // }
 
 
@@ -82,6 +85,7 @@ Escribir un algoritmo que determine si un número M es divisible por N.
 //     else{
 //        cout << "No es divisible";
 //     }
+//     return 0;
 // }
 
 
@@ -199,5 +203,6 @@ opción se eligió o si fue una opción incorrecta.
 //         cout << endl;
 //         procesar_opcion(opc, num_1, num_2);
 //         cout << endl;
+//      return 0;
 //     }
 // }   
