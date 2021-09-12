@@ -7,7 +7,7 @@ using namespace std;
 const int OPCIONES_VALIDAS = 5;
 const string PATH_CONTACTOS = "contactos.txt";
 const int SALIR = 5;
-const int CANTIDAD_NUMEROS_EN_TELEFONO = 11;
+const int CANTIDAD_NUMEROS_EN_TELEFONO = 10;
 
 struct Contacto{
     string nombre;

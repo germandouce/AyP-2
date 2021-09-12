@@ -58,7 +58,7 @@ void cargar_agenda(Agenda* agenda){
 
         contacto = new Contacto;
         contacto -> nombre = nombre;
-        contacto -> numero = stol(numero);
+        contacto -> numero = stoll(numero);
 
         agregar_contacto(agenda, contacto);
     }
@@ -191,7 +191,7 @@ long pedir_numero(){
         cin >> numero;
     }
 
-    return stol(numero);
+    return stoll(numero);
 }
 
 bool existe_el_numero(long numero, Agenda* agenda){
