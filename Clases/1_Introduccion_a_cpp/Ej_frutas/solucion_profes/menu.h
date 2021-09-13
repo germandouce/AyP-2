@@ -4,11 +4,11 @@
 #include "frutas.h"
 
 const int CONTAR_FRUTAS = 1;
-const int OPCION_MINIMA = 1;
-const int OPCION_MAXIMA = 4;
 const int BUSCAR_FRUTAS = 2;
 const int ORDENAR_FRUTAS = 3;
 const int SALIR = 4;
+const int OPCION_MINIMA = 1;
+const int OPCION_MAXIMA = 4;
 
 //pre: -
 //post: Imprime por pantalla el menu

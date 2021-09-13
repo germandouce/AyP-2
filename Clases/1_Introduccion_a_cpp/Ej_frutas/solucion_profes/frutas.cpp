@@ -68,13 +68,13 @@ string pedir_fruta() {
 void ordenar_frutas(Fruta frutas[MAX_FRUTAS], int tope){
     Fruta temporal;
 
-    for (int i = 0;i < tope; i++){
-        for (int j = 0; j< tope - 1; j++){
-
+    for (int i = 0;i < tope; i++){      //[ban 0, manz 1, pera 2]
+        for (int j = 0; j< tope - 1; j++){  //[ban 0, manz 1, manz1+1]
+                    //despues en el abcdario
             if (frutas[j].nombre > frutas[j+1].nombre){
                 temporal = frutas[j];
-                frutas[j] = frutas[j+1];
-                frutas[j+1] = temporal;
+                frutas[j] = frutas[j+1];    //coloco primero la q estaba ANTES en el abcdario
+                frutas[j+1] = temporal; //colo dsps temporal = frutas[j] = DSPS en el abcdario
             }
         }
     }
