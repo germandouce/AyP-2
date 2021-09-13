@@ -30,6 +30,8 @@ int pedir_opcion(){
 
 void validar_opcion_elegida(int &opcion_elegida){
     bool es_opcion_valida = opcion_elegida > 0 && opcion_elegida <= OPCIONES_VALIDAS;
+    //Si es valida no pasa nada pues no entra al while. Si es falsa, queda atrapada
+    //en el ciclo hasta q ingrese un opcion valida. Obs: la var se modifica por parametro!
     while(!es_opcion_valida){
         cout << "La opción elegida no es una opcion válida, por favor ingrese otra opción: ";
         cin >> opcion_elegida;
@@ -231,6 +233,7 @@ Contacto* pedir_contacto(){
     cin >> nombre;
     long numero = pedir_numero();
 
+    //se usa " -> " xq lo modifico a traves de un puntero
     contacto -> nombre = nombre;
     contacto -> numero = numero;
 
@@ -241,6 +244,7 @@ void eliminar_contacto(Agenda* agenda, int posicion){
     if(agenda -> cantidad_de_contactos > 1){
         mostrar_contactos(agenda);
 
+        //mando el q quiero elimnar a la ult pos y lo intercambio con ese
         swap(agenda, agenda -> cantidad_de_contactos - 1, posicion);
 
         mostrar_contactos(agenda);
@@ -250,9 +254,11 @@ void eliminar_contacto(Agenda* agenda, int posicion){
         for(int i = 0; i < agenda -> cantidad_de_contactos - 1; i++){
             nuevo_vector_contactos[i] = agenda -> contactos[i];
         }
-
+        //borro el contacto de la ult pos
         delete agenda -> contactos[agenda -> cantidad_de_contactos - 1];
-        delete[] agenda -> contactos;
+        delete[] agenda -> contactos; 
+
+        //observar q el de la ult pos se mueve a la pos del q elimine
 
         agenda -> contactos = nuevo_vector_contactos;
     }else{
@@ -264,7 +270,7 @@ void eliminar_contacto(Agenda* agenda, int posicion){
 }
 
 void swap(Agenda* agenda, int posicion1, int posicion2){
-    Contacto* aux = agenda -> contactos[posicion1];
-    agenda -> contactos[posicion1] = agenda -> contactos[posicion2];
-    agenda -> contactos[posicion2] = aux;
+    Contacto* aux = agenda -> contactos[posicion1]; //cant_cont -1
+    agenda -> contactos[posicion1] = agenda -> contactos[posicion2]; //el q quiero eliminar ->lo mando a ult pos
+    agenda -> contactos[posicion2] = aux; //cant_cont -1
 }
