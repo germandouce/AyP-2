@@ -7,12 +7,6 @@ using namespace std;
 const string PATH_ENTRADA = "numeros.txt";
 const string PATH_SALIDA = "salida.txt";
 
-int main(){
-    leer_archivo();
-    escribir_archivo();
-    return 0;
-}
-
 void leer_archivo(){
     // NUMERO NUMERO MUERO NUMERO ...
     /*
@@ -45,6 +39,11 @@ void escribir_archivo(){
     archivo_salida.close();
 }
 
+int main(){
+    leer_archivo();
+    escribir_archivo();
+    return 0;
+}
 
 
 //NOMBRE;DNI;LEGAJO
