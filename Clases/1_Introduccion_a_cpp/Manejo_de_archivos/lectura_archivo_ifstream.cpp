@@ -19,7 +19,7 @@ int main(){
         archivoDeTexto.close();
     } else {
         cout << "El archivo no se abrio correctamente" << endl;
-    }
-
+    };
+    archivoDeTexto.close();
     return 0;
 }
