@@ -9,7 +9,10 @@ const string NOMBRE_ARCHIVO = "log.txt";
 void escribirEnArchivo(ofstream* archivo, string frase);
 
 int main(){
-    ofstream archivoDeEscritura(NOMBRE_ARCHIVO);
+    ofstream archivoDeEscritura(NOMBRE_ARCHIVO,ios::app); 
+    
+    // ios::app si no ya esta el archivo no lo borra
+    //(en la practica hace un append al final)
 
     if(!archivoDeEscritura.fail()){
         escribirEnArchivo(&archivoDeEscritura, "Se realiza el ejercicio");
