@@ -17,6 +17,9 @@ int main(){
     } else {
         cout << "El archivo no se creo correctamente" << endl;
     }
+    
+    archivoDeEscritura.close();
+
     return 0;
 }
 
