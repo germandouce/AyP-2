@@ -1,3 +1,131 @@
--Wall
--Werror
+.LOG
+
+-Wall: Turns on some warnings
+-Werror: 
 -Wconversion: si los tipos de datos son != tira error
+
+PRE Y POSTCONDICIONES:
+Si la firma esta en el .h las pre y post van en el .h
+Si la firma esta en el .cpp las pre y post van en el .cpp
+Si la funcion pasa un objeto o una estructura a otra funcion, las precondiciones q influyen en ese
+objeto van en la funcion q lo usa.
+--------------------
+13:46 16/9/2021
+
+## --Repaso de memoria dinamica y punteros--
+
+>Declarar las variables en el scope donde se usaran
+Las variables nacen cuando las declaro y mueren en la llave de 
+cierre del bloque de codigo donde fueron creadas.
+
+>Cuando se crean los punteros se les asigna el objeto o tipo de dato al que 
+pueden apuntar. NO USAR PUNTERO VOID *PCC!!
+
+int * pi, pi2, pi3. Solo pi es un puntero.pi2 pi3 son enteros
+typedef int* pi,
+pint pi, pi2, pi3 son los 3 punteros
+
+>Todas las variables q defino en el main estan el stack
+
+¿Como acceder y solicitar memoria al heap?
+
+> new int;
+esto crea una variable anonima en el heap.
+Pero OJO, si no guardo la direccion de memoria dsps no puedo acceder!
+Entonces cada vez que hago el new del otro lado tengo q tener un 
+puntero que guarda la direccion de memoria.
+New hcae 2 cosas
+	>reserva memoria
+	>guarda la direc de memoria
+ej:
+
+int x = 5;
+int *p;
+p = new int;
+
+//ult 2 lineas --> int *p = new int
+cout << p; //esperaria ver la direc 5mil blabla
+*p = x;
+
+cout << p << " " << &p << " " << &x << endl
+p esta en el stack y &p en el heap
+
+cout << *p; //voy a ver lo q hay en la direc guardada en p
+cout<< new int <<endl
+
+delete p;	
+//libera el heap pero el dato sigue quedando en la maemoria
+
+p = 0;
+
+if (p = 0){
+	cout << p << " " << &p << " " << &x << endl
+	//deberia tirar error
+}
+
+Ojo! No le agrego el * al puntero,
+
+
+Lo que esta en la memoria dinamica sobrevive a la funcion y no
+se elimina apenas termina la funcion.
+
+--vectores de forma dinamica--
+int *p;
+p = new int[20]; //reserva lugar en el heap xa guardar 20 enteros
+
+ejemplo mas util
+int x = 5; 
+cin >> cantidad;
+int * p = new int[cantidad];
+
+y ahora lo trabajo exactamente como si fuere un vector
+p[20]=8
+
+para liberar memoria de un vector en el heap..
+
+delete[] vec;
+
+vec es un puntero que guarda la direc de memoria del primer 
+elemento del vector.
+
+--matriz--
+Entonces ahora empiezo a tener un vector de punteros a
+enteros. Y a su vez a cada puntero es un vector de 
+punteros a enteros.
+
+Entonces me queda un vector de punteros a cada columna
+
+ojo al liberar memoria! xq si solo borro el indice, me 
+quedan colgadas las columnas. Entonces tengo q liberar
+primero todas las filas y dsps el "indice"
+
+delete [] matriz [i]
+delete [] matriz*
+[1,2,3]
+
+ej variables y punteros
+--en main--
+		int *	       char	
+	------------------    ------		
+cant	x	y	z	a	h0 h1 h2 h3 hn	
+  4    &h0     &hn     &h0      A       65 66 67 68 69		
+       &h1   		        E	70
+
+--en f2--
+p    a
+&hn  69
+     70
+cout linea 14 --> *p es 69 y
+cout linea
+
+E  80 65	
+70 67 69 71
+
+al liberar tengo q liberar el
+heap, q esta dividido en 2. 
+h0 h1 h2 h3 
+y hn
+delete y;
+delete [] z;
+-------------------
+14:17 18/9/2021
