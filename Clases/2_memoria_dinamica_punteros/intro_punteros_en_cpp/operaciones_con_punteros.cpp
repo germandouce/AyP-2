@@ -23,12 +23,12 @@ int main(){
 
     //Esta forma si es mas utilizada especialmente cuando se crean
     //bloques de memoria
-
+   
     //Hay un solo valor valido que se puede asignar a un puntero que no
     //sea la direccion de memoria de otra variable:
     //el valor nulo. Se realiza poniendo un cero o un NULL a la variable
     p_1 = 0;
-    p_2 = NULL;
+    //p_2 = NULL;
     //cout <<*p_2;
 
     //Mejor practica usar 0, zq la constante NULL no simepre esta definida
@@ -39,9 +39,10 @@ int main(){
 
     //La suma de un valor a un puntero hace q este avance a las posiciones
     //continuas de memoria
-
+    //cout<<"hello";
+    
     int * p_vec_1 = new int[100]; // p apunta al primer lugar del vector
-    p_vec_1++; // p apunta al segundo lugar de vector
+    //p_vec_1++; // p apunta al segundo lugar de vector
 
     // NO hay q hacer *p_vec_1 porque el array es un puntero al primer elemento
     p_vec_1[0] = 0;
@@ -52,17 +53,23 @@ int main(){
     //Con la resta sucede lo contrario, retrocede.
     //OJO, PARA LIBERAR LA MEMORIA EL PUNTERO DEBE APUNTAR A LA PRIMER DIRECCION
 
+    
     //ejemplo:
 
     if (p_vec_1){ //equivale a p != 0
         //realizar A
        // cout <<"p apunta a cierta direccion valida"<<endl;
+       cout<<"hello";
     }
     else{
         //realizar B
         //cout<<"//p n o apunta a ninguna direccion"<<endl;
     };
-    
+
+    delete [] p_vec_1;
+    delete p_2;
+    p_2 = NULL;
+
     return 0;
     
 }
