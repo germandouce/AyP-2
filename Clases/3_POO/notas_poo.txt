@@ -1,0 +1,235 @@
+CLASES CPP POO VIDEO SALDINA
+
+*CLASES Y OBJETOS
+Las clases tienen por default los atributos y metodos en provado
+
+privado - publico - protegido
+
+creo clase y la instancio => creo un objeto
+Esto crea un objeto a traves de un constructor por defecto
+
+*ACCESS MODIFIERS (NO SE TRADUCCION AL ESPAÑOL)
+nombre_clase instancia,
+instancia.atributo
+instancia.metodo
+
+
+*CONSTRUCTORS (CONSTRUCTORES)
+son un metodo mas que permite instanciar una clase con una funcion sin volver a invocar a 
+todos los atributos y metodos
+
+- No tienen un return type
+- Debe tener el mismo nombre que la clase que construye (a la que pertenece) y (se
+definen adentro de esta)
+- En general los constrcutores deben ser publicos (no necesariamente pero en general si para 
+poder acceder a ellos mas facilmente)
+
+*lo coloco en la zona public
+*Cuando se crea un constructor se pierden todos los objetos que fueron creados con el
+constructor por defecto
+nomobre_clase instancia = construtor(parametros del constructor)
+recordar que el constrcutor tiene el miso nombre que la clase
+
+*LOS 4 PRINCIPIOS DE POO
+-Encapsulamiento
+-Abstraccion
+-Herencia
+-Polimorfismo
+
+### Encapsulamiento:
+Poner juntos los metodos y data e info que se relacionan juntos en una misma clase
+Para evitar que cualquier otroa clase afuera interactue y modifiique mi data. Solo 
+quiero que interactue.
+Se crean metodos llamados 
+setters -> ingreso de parametros
+getters -> deuvelven valores (con un return)
+
+ej:
+private:
+  defino atributos...
+  type atriuto_1,
+public:
+  setter (atributo_1){
+	}
+  getter (atributo_1){
+	}
+
+Entonces los atrbutos estan encapsulados y no pueden ser accedidos 
+directamente, solo a traves de los metodos que estan privados (setters y getters)
+los setters y getter son funciones asi q se les puede agregan metodos de 
+validacion
+
+El objetivo es mantener privadas los atributos asi es necesario pasar por los
+metodos que yo defino para acceder a ellas
+
+### Abstraccion:
+Esconder cosas complejas detras de un procedimiento que las hace parecer
+mucho mas simple. Hay una interfaz entre lo que yo hago y la accion en si.
+
+Se hace a traves de la interfaz y con clases abstractas.
+-Clases abstractas:
+class pedrir_ascenso_asbtracta {
+	virtual void pedir_ascenso() = 0
+},
+
+Cada vez que alguien quiera firmar un contrato xa pedir un ascennso va a tener
+que proveer implementacion para la funcion pedir_ascenso()
+Ahora si quiero que la clase firme el contrato con pedir_ascenso
+hago:
+clase orig:pedir_ascenso_abstracta{
+}
+
+Ahora necesito un "overrider" es decir proveer implentacion para la funcion 
+virtual que hay en la clase abstracta
+
+Voy a los public methods de la clase orig ahgregando el metodo:
+funcion pedir_ascenso(){
+   Puedo agregar logica aqui para cada vez que alguien quiera un ascenso
+   a traves del metodo.
+}
+
+Entonces creamos una clase abstracta en la que cada vez que alguien quiera pedir
+un ascenso (implementar el metodo) necesito pasar por la funcion virtual que 
+hay adentro de la clase sin preocuparme por la complejidad de esa funcion.
+
+
+### Herencia
+Tengo una clase Base, o padre ---> y una clase directa o subclase
+La clase directa o subclase tendra todos los atrbiutos y metodos de la clase
+padre y podra agregar los suyos q son especificos
+
+class Empleado{
+}
+
+class: Developer: Employee{
+   public: 
+	string Fav_lang
+}
+La clase developer heredara todos los atributos y metodos de la clase
+empleado.
+
+OJO! si yo quiero instanciar la clase developer, hereda los constructores
+de la clase empleado entonces necesito proveer un constructor para las
+clases derivadas de la clase empleado, es decir para la clase develper.
+
+class: Developer: Employee{
+    public: 
+	string Fav_lang,
+	Developer(name, int company, age, fav_lang)
+	   : Employee(name, company, age) para q construya solo el empleado
+	{
+	   Fav_lang = fav_lang,
+	   void FixBug(){
+		cout<< si intento llamar un atributo de empleado no voy a poder
+		porque esta privado. Solo puedo acceder usando el getter que
+		defini antes. getname()
+	
+}
+	}
+
+Entonces agrego los parametros que usaba el constructor de la clase empleado
+y los nuevos que va a reqerir especificamente el constructor developer
+
+Ahora si puedo crear un objeto de la clase developer xq tengo un constructor
+de esa clase que constriye tambien (llamandolo) al empleado
+
+developer d = developer(saldina, yt, 25, c++)
+
+protective:
+	permite que las subclases puedan ver el atributo ese.
+
+
+Si quiero que la clase developer pueda usar un METODO de la clase empleado
+(si puedo dentro de la definicion de la clase developer) necesito hacer
+
+class developer: public empleado(){}
+
+xq por defecto la clase empleado viene como privada
+
+### Polimorfismo
+La capacidad de un objeto o metodo de tener varias formas.
+Se usa cuando la referencia de una clase padre se usa para referirse 
+a un objeto de una subclase.
+Si no entendi mal,  ejemplo si quiero que todos los empleados trabajen con la funcion 
+work()
+
+pero que cada uno haga algo distinto, la manera ideal es
+
+class Empleado{
+   public:
+	virtual void work(){
+		Lo que sea que haga work() medio que esta por defecto
+		}
+}
+
+solo ejecuta la funcion si o hay una funcion derivada con mismo nomnre y 
+distintas acciones
+
+class Developer: public empleado{
+	void work(){
+		algo que solo hace un dev
+	}
+}
+
+class Teacher: public empleado{
+	void work(){
+		algo que solo hace un teacher
+	}
+}
+
+(Suponer q cada uno tiene su propio constructor)
+
+Developer d = Developer (parametros paar empleado y dev)
+Teacher t = Teacher(parametros para empleado y teacher)
+
+Employee* emmpleado_1 = &d;
+Employee* empleado_2 = &t;
+
+creo un puntero de tipo clase empleado 
+que contiene una clase derivada de tipo profesor/developer
+
+empleado_1 -> work();
+empleado_2 -> work();
+
+Cada empleado que llame hace lo q le marque en la definicion de su clase.
+
+Asi, si por ejemplo tuviera 100 empleados podria hacer:
+Empleado.work() (OJO NO VA PUNTERO ACA XQ NO ES NINGUN EN ESPECIFICO?)
+y cada uno empezaria a hacer lo q le escribi a su funcion work().
+
+DESTRUCTORES:
+Basicamente son un metodo que es llamado cuando un OBJETO es destruido. Es
+util ppalmente cuando en el CONSTRUCTOR inicialize alguna variable con el heap
+que me interesa destruir xa no tener memory leaks.
+En gral no se lo llama manualmente sino que se ejecuta automaticamente cuando termina
+la funcion
+
+-Llevan el mismo nombre que los constructores
+
+
+------------UML--------------
+clase padre ------> clase hijo
+     1			4
+
+se lee: 1 padre tiene 4 hijos
+
+clase vehiculo <|----------- clase auto
+
+se lee: auto es un vehiculo.
+
+__________RESUMEN_____:
+
+Los atributos van privados, para accedr a ellos necesito estar adentro de la clase de alguna
+manera. por eso, para modificarlos,lo tego q hacer a traves de los getters y setters, y asi 
+se hace el ppio de encapsulamiento. Cada vez q necesite modificarlos, lo hago a traves de 
+la interfaz. Si necesito usar una clase que no esta definida xapedir memoria al heap por 
+ejemplok esta tiene q tener un constructor por defecto xa poder pedir memoria al hap.
+
+
+TERMINAR DE LEER CLASE CIRCULO
+CONSTRUCTOR DE COPIA!!!!!!!!
+DESCOMPRIMIR .ZIPS DE CONSTRUCTORES Y LEERLOS (MATERIAS Y INICIALIZACION CLASES INTERNAS)
+VER SI HAY MAS EJS ASI
+
+
+
