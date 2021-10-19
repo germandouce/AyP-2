@@ -1,0 +1,2 @@
+COMPILAR:
+g++ *.cpp -Werror -Wall -Wconversion

@@ -128,3 +128,8 @@ y hn
 delete y;
 delete [] z;
 -------------------
+
+14:00 12/10/2021
+
+No es correcto usar herencia solo para bajar atributos!
+Si es correcta si quiero heredar algun metodo
