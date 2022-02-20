@@ -7,7 +7,6 @@ Lista::Lista() {
     cantidad = 0;
 }
 
-
 bool Lista::vacia() {
     return (cantidad == 0);
 }
@@ -29,6 +28,7 @@ void Lista::alta(Dato d, int pos) {
     if (pos == 1) {
         //El ptr primero ahora apunta a nuevo
         primero = nuevo;
+        std::cout<<primero->obtener_dato()<<std::endl;
     }
     //si no...      
     else {

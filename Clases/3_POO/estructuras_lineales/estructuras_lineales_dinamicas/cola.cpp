@@ -59,7 +59,7 @@ void Cola::alta(Dato d) {
 Dato Cola::baja() {
     //Arranco por el primer nodo porque es una cola. 
     //Gurado su direc de memoria.
-    Nodo* aux = primero
+    Nodo* aux = primero;
     
     //Ahor primero pasa a ser el siguiente del auxiliar (
     // xq estoy boleteando el 1ero)
