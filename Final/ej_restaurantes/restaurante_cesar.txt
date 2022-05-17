@@ -1,0 +1,50 @@
+class Restaurante
+{
+public:
+// Crea un restaurante con su nombre, el precio promedio por cubierto y
+// una lista de platos que sirve
+    Restaurante (string nombre, int precio_promedio, Lista<string>* platos);
+    string obtener_nombre(); // devuelve el nombre del restaurante
+    int obtener_precio_promedio (); // devuelve el precio promedio
+    Lista<string>* obtener_platos (); // devuelve ptr a la lista de platos
+};
+//Implementar el método recomendar_restaurantes de la clase Buscador_restaurantes:
+class Buscador_restaurantes
+{
+public:
+// Post: busca en “restaurantes” aquellos que tienen por lo menos dos platos de la
+// lista “platos_deseados” y un precio promedio menor o igual a precio_maximo.
+// Devuelve una lista con los restaurantes que cumplen con estas características.
+    Lista<Restaurante *>* recomendar_restaurantes (Lista<Restaurante *>*
+    restaurantes, Lista<string>* platos_deseados, int precio_maximo);
+    bool buscar_platos(string plato,Lista<string>* platos_deseados);
+};
+
+bool Buscador_restaurantes::buscar_platos(int plato, int *platos_deseados) {
+    int cont = 0;
+    bool esta=false;
+    platos_deseados.reiniciar;
+    while (platos_deseados.hay_siguiente && !esta){
+        if(plato == platos_deseados.siguiente)esta=true;
+    }
+    return esta;
+}
+
+int *Buscador_restaurantes::recomendar_restaurantes(int *restaurantes, int *platos_deseados, int precio_maximo) {
+    int cont=0;
+    Lista<Restaurante *>* Recomendados;
+    restaurantes.reiniciar;
+    Restaurante* actual;
+    Lista<string>* platos;
+    while (restaurantes.hay_siguiente){
+        actual=restaurantes.siguiente;
+        platos=actual->obtener_platos();
+        platos.reiniciar;
+        while(platos.hay_siguiente && cont<2){
+            if(actual->obtener_precio_promedio()<= precio_maximo && buscar_platos(platos.siguiente,platos_deseados))cont++;
+        }
+        if(!(cont<2))Recomendados.agregar(actual);
+        cont=0;
+    }
+    return Recomendados;
+}

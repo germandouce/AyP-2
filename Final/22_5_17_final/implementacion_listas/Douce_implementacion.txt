@@ -1,0 +1,12 @@
+﻿//PRE: Recibe un objeto de tipo Lista<Dato>
+//POST: modifica la lista que llama al método: le une al final una copia de lista
+template<typename Dato>
+void Lista<Dato>::unir(Lista<Dato> lista){
+    int longitud_original = longitud
+
+    for(int i=1; i<= lista.obtener_longitud(); i++ ){
+        Dato dato = lista.obtener_dato(i);        
+        insertar(dato,i + longitud_original); //en la original
+    }
+   
+}

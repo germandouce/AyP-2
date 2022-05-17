@@ -1,0 +1,88 @@
+//EJERCICIO 1 IMPLEMENTACION
+
+Estás implementando la clase Lista. Esta clase ya tiene implementados los métodos que figuran en el archivo lista.h que incluye nodo.h.
+
+Tenés que agregar (implementar) el siguiente método:
+
+/* 
+
+PRE: agregar
+
+POST: modifica la lista que llama al método: le une al final una copia de lista
+
+*/
+
+void unir(Lista lista);
+
+
+Nota 1: si necesitás agregar algún otro método que no figura en el archivo .h podés hacerlo.
+
+Nota 2: agregá las precondiciones
+
+Nota 3: podés escribir en la caja de abajo o podés subir un archivo.
+
+
+
+//EJERCICIO 2 USO DE LISTAS
+
+La clase Lista tiene implementados los métodos que figuran en el archivo lista_con_actual.h que incluye nodo.h (notar que, con respecto al ej. 1, se le agrega un atributo (actual) y tres métodos).
+
+Considerar como implementada la clase Persona a partir de la siguiente interfaz:
+
+class Persona {
+
+public:
+
+/* Crea una Persona con su nombre, edad y una lista de intereses */
+
+Persona (string nombre, int edad, Lista<string>* intereses);
+
+
+
+/* devuelve el nombre de la Persona */
+
+string obtener_nombre(); 
+
+
+
+/* devuelve la edad */
+
+int obtener_edad (); 
+
+
+
+/* devuelve un ptr a lista de intereses */
+
+Lista<string>* obtener_intereses (); 
+
+};
+
+
+
+Implementar el método recomendar_personas de la clase Red_social, según:
+
+class Red_social {
+
+public:
+
+/* 
+
+Post: busca en “personas” aquellas que tienen por lo menos dos intereses de la lista 
+
+“gustos” y una edad menor o igual a edad_maxima y mayor o igual a edad_minima.
+
+Devuelve un puntero a una lista con las personas que cumplen con estas características.
+
+*/
+
+Lista<Persona *>* recomendar_personas (Lista<Persona *>*  personas, 
+
+Lista<string>* gustos, int edad_maxima, int edad_minima);
+
+};
+
+
+
+Nota 1: asumí que la Lista de referencia está implementada con templates.
+
+Nota 2: podés escribir en la caja de abajo o podés subir un archivo.
